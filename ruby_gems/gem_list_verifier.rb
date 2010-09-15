@@ -7,8 +7,8 @@
 	    
 @@gems_installed_list.each do |gem|
 puts gem.gsub(/.\d|.gem/,"") end  
-
-def verify_installed_gems #checking all the essential debian packages
+#checking all the essential debian packages
+def verify_installed_gems 
 
 		file = File.open("gems_list.txt")
 			file.each_line{|line|
