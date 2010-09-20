@@ -1,23 +1,10 @@
-
-@@gems_installed_list=[]
-  file=File.new("gems_list.txt","w+")
-		Dir.foreach("/usr/lib/ruby/gems/1.8/cache"){
-		|gem| @@gems_installed_list << gem  }
-	    file.close	
-	    
-@@gems_installed_list.each do |gem|
-puts gem.gsub(/.\d|.gem/,"") end  
-#checking all the essential debian packages
-def verify_installed_gems 
-
-		file = File.open("gems_list.txt")
-			file.each_line{|line|
-		
-		if !@@gems_installed_list.include?(line.gsub(/.\d|.gem/,"") )
-		  puts "#{line.chop} is installed."
-		else
-		  puts "#{line.chop} is not installed."
-		end
-	}
+require 'save_installed_gems.rb'
+ 
+def list_uninstalled_gems
+  $important_gems.each do |gem|
+  if !$installed_gems.include?(gem) 
+      puts "#{gem} not installed" 
+     end	
+  end 
 end
-verify_installed_gems 
+list_uninstalled_gems
