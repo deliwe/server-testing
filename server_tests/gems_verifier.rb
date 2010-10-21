@@ -1,25 +1,31 @@
-class Gems_verifier
+# Saving installed gems into and array 
+# from ("/usr/lib/ruby/gems/1.8/cache") 
+# and verifying if they are installed
+#
+class GemsVerifier
   $installed_gems = []
   $uninstalled_gems = []
   
-	#saving installed gems in an array	
+	#saving installed gems in an array
+	#	
 	Dir.foreach("/usr/lib/ruby/gems/1.8/cache") do |gem|
 		$installed_gems << gem.gsub(/.\d|.gem|\s/,"")
 	end
   
+  #verify if all gems are installed
+  #
   def verify_gems
-   #verify if all gems are installed
-   if !File.exists?("gems_list.txt")
+    if !File.exists?("gems_list.txt")
       puts "gems_list.txt doesn't exists"
-   else
+    else
       IO.foreach("gems_list.txt") do |line|	
-        if !$installed_gems.include?(line.gsub(/.\d|\s|\)|\,|\d/,""))	
+        if !$installed_gems.include?( line.gsub(/.\d|\s|\)|\,|\d/,"") )	
           $uninstalled_gems << line				
         end
 	    end
 	    $uninstalled_gems
-	 end
+	  end
   end
 end
-gems = Gems_verifier.new
+gems = GemsVerifier.new
 gems.verify_gems

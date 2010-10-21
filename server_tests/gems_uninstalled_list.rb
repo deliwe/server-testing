@@ -1,17 +1,12 @@
+# listing the unistalled gemsc from gems_verifier.rb
+#
 require 'gems_verifier.rb'
 
-class Gems_uninstalled_list
-  def list_uninstalled_gems
-    if !File.exists?("important_gems_list.txt")
-      puts "\n"
-    elsif $uninstalled_gems.empty?
-      puts"All important gems are installed"
-    else     
-      #list all uninstalled gems
-	    puts "List of unistalled gems.."
-	    $uninstalled_gems.each{ |gem| puts gem.chop }
-	  end
+class GemsUninstalledList
+  def list_uninstalled_gems     
+    puts " List of unistalled gems.."
+	  $uninstalled_gems.each{ |gem| puts gem.chop }
   end
 end
-gems=Gems_uninstalled_list.new
+gems = GemsUninstalledList.new
 gems.list_uninstalled_gems
