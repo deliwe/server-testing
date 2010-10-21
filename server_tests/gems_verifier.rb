@@ -1,8 +1,10 @@
+#!/usr/bin/ruby -w
 # Saving installed gems into and array 
 # from ("/usr/lib/ruby/gems/1.8/cache") 
 # and verifying if they are installed
 #
 class GemsVerifier
+  
   $installed_gems = []
   $uninstalled_gems = []
   
@@ -26,6 +28,7 @@ class GemsVerifier
 	    $uninstalled_gems
 	  end
   end
+  
 end
 gems = GemsVerifier.new
 gems.verify_gems

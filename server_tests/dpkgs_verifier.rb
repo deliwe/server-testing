@@ -1,3 +1,4 @@
+#!/usr/bin/ruby -w
 # Saving installed dpkgs into and array from ("/var/lib/dpkg/info") 
 # and verifying if they are installed
 #

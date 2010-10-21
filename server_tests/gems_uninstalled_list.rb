@@ -1,3 +1,4 @@
+#!/usr/bin/ruby -w
 # listing the unistalled gemsc from gems_verifier.rb
 #
 require 'gems_verifier.rb'

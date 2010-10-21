@@ -1,3 +1,4 @@
+#!/usr/bin/ruby -w
 # listing the unistalled debian packages from dpkgs_verifier.rb
 #
 require 'dpkgs_verifier.rb'

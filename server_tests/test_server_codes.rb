@@ -1,3 +1,4 @@
+#!/usr/bin/ruby -w
 # tests for the debian_packages, mysql_root_password_verifier
 # and the ruby gems codes.
 #

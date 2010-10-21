@@ -1,3 +1,4 @@
+#!/usr/bin/ruby -w
 # verifying if mysql root user has a password.
 #
 require 'mysql'
