@@ -2,7 +2,9 @@ require 'gems_verifier.rb'
 
 class Gems_uninstalled_list
   def list_uninstalled_gems
-    if $uninstalled_gems.empty?
+    if !File.exists?("important_gems_list.txt")
+      puts "\n"
+    elsif $uninstalled_gems.empty?
       puts"All important gems are installed"
     else     
       #list all uninstalled gems

@@ -9,12 +9,16 @@ class Gems_verifier
   
   def verify_gems
    #verify if all gems are installed
-    IO.foreach("important_gems_list.txt") do |line|	
-      if !$installed_gems.include?(line.gsub(/.\d|\s|\)|\,|\d/,""))	
-        $uninstalled_gems << line				
-      end
-	  end
-	   $uninstalled_gems
+   if !File.exists?("gems_list.txt")
+      puts "gems_list.txt doesn't exists"
+   else
+      IO.foreach("gems_list.txt") do |line|	
+        if !$installed_gems.include?(line.gsub(/.\d|\s|\)|\,|\d/,""))	
+          $uninstalled_gems << line				
+        end
+	    end
+	    $uninstalled_gems
+	 end
   end
 end
 gems = Gems_verifier.new

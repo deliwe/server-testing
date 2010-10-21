@@ -1,6 +1,5 @@
 require 'mysql'
 class Mysql_root_passwd_verifier
-  $con=""
   def verify_mysql_root_passwd
     begin
       $t_host='localhost' 
