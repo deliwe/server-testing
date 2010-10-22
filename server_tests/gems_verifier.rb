@@ -10,8 +10,12 @@ class GemsVerifier
   
 	#saving installed gems in an array
 	#	
-	Dir.foreach("/usr/lib/ruby/gems/1.8/cache") do |gem|
-		$installed_gems << gem.gsub(/.\d|.gem|\s/,"")
+	begin
+	  Dir.foreach("/usr/lib/ruby/gems/1.8/cache") do |gem|
+		  $installed_gems << gem.gsub(/.\d|.gem|\s/,"")
+	  end
+	rescue Exception => err
+	 puts "Error: #{err}"
 	end
   
   #verify if all gems are installed

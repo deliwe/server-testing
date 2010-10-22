@@ -8,13 +8,16 @@ class DebianPkgVerifier
   $uninstalled_pkgs = []
   
   #saving installed debian packages in an array
-	#	
-  Dir.foreach( "/var/lib/dpkg/info" ) do |pkg|
-    if  pkg.to_s.include?( '.list' )
-      $installed_pkgs << pkg.gsub(/.list/,"") 
+	#
+	begin	
+    Dir.foreach( "/var/lib/dpkg/info" ) do |pkg|
+      if  pkg.to_s.include?( '.list' )
+        $installed_pkgs << pkg.gsub(/.list/,"") 
+      end
     end
+  rescue Exception => err
+    puts "Error: #{err}"
   end
-  
   #verify if all debian packages are installed
   #
   def verify_debian_pkgs
