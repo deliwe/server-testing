@@ -18,16 +18,16 @@ class DebianPkgVerifier
   #verify if all debian packages are installed
   #
   def verify_debian_pkgs
-    if !File.exists?( "debian_packages.txt" )
-      puts "debian_packages.txt doesn't exists"
-    else
+    begin
       IO.foreach("debian_packages.txt") do |line|
         if !$installed_pkgs.include?( line.gsub(/\n|\s/,"") )
           $uninstalled_pkgs << line
         end
       end
-      $uninstalled_pkgs
+    rescue Exception => err
+      puts "Error: #{err}" 
     end
+    $uninstalled_pkgs
   end
 end
 dpkg = DebianPkgVerifier.new
