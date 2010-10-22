@@ -46,13 +46,9 @@ class TestInstalledGems  < Test::Unit::TestCase
 	#testing if the variables are entered correctly
 	#
 	def test_mysql_connection
-	  @t_host='localhost' 
-    @t_user='root'
-    @t_passwd=''
-           
-	  assert_equal(@t_host, $t_host, "Mysql_root_password verifier")
-	  assert_equal(@t_user, $t_user, "Mysql_root_password verifier")
-	  assert_equal(@t_passwd, $t_passwd, "Mysql_root_password verifier")
+	  assert_equal("localhost", $t_host, "Mysql_root_password verifier")
+	  assert_equal("root", $t_user, "Mysql_root_password verifier")
+	  assert_equal("", $t_passwd, "Mysql_root_password verifier")
 	end
 	
 end
