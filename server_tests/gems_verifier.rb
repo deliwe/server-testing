@@ -15,7 +15,8 @@ class GemsVerifier
 		  $installed_gems << gem.gsub(/.\d|.gem|\s/,"")
 	  end
 	rescue Exception => err
-	 puts "Error: #{err}"
+	 puts "Error: #{err.message}"
+   puts "Error Line: #{err.backtrace.inspect}"
 	end
   
   #verify if all gems are installed
@@ -28,9 +29,9 @@ class GemsVerifier
         end
 	    end
     rescue Exception => err
-      puts "Error: #{err}" 
+      puts "Error: #{err.message}"
+   		puts "Error Line: #{err.backtrace.inspect}"
     end
-    $uninstalled_gems  
   end
   
 end

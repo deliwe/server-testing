@@ -16,7 +16,8 @@ class DebianPkgVerifier
       end
     end
   rescue Exception => err
-    puts "Error: #{err}"
+    puts "Error: #{err.message}"
+   	puts "Error Line: #{err.backtrace.inspect}"
   end
   #verify if all debian packages are installed
   #
@@ -28,10 +29,11 @@ class DebianPkgVerifier
         end
       end
     rescue Exception => err
-      puts "Error: #{err}" 
+      puts "Error: #{err.message}"
+     	puts "Error Line: #{err.backtrace.inspect}" 
     end
-    $uninstalled_pkgs
   end
+
 end
 dpkg = DebianPkgVerifier.new
 dpkg.verify_debian_pkgs
