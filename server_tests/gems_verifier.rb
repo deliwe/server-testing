@@ -1,15 +1,12 @@
 #!/usr/bin/ruby -w
-# Saving installed gems into and array 
-# from ("/usr/lib/ruby/gems/1.8/cache") 
-# and verifying if they are installed
+# Saving installed gems 
 #
+
 class GemsVerifier
   
   $installed_gems = []
   $uninstalled_gems = []
-  
-	#saving installed gems in an array
-	#	
+  	
 	begin
 	  Dir.foreach("/usr/lib/ruby/gems/1.8/cache") do |gem|
 		  $installed_gems << gem.gsub(/.\d|.gem|\s/,"")
@@ -35,5 +32,6 @@ class GemsVerifier
   end
   
 end
+
 gems = GemsVerifier.new
 gems.verify_gems

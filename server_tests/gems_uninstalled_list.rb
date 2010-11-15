@@ -1,10 +1,12 @@
 #!/usr/bin/ruby -w
-# listing the unistalled gemsc from gems_verifier.rb
+#list uninstalled gems
 #
 require 'gems_verifier.rb'
 
 class GemsUninstalledList
+
   def list_uninstalled_gems 
+    
     if $uninstalled_gems.count == 0
       puts " All important gems are installed"
     else   
@@ -13,5 +15,6 @@ class GemsUninstalledList
 	  end
   end
 end
+
 gems = GemsUninstalledList.new
 gems.list_uninstalled_gems
